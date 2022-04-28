@@ -10,38 +10,42 @@ Created on Mon Apr 25 09:09:16 2022
 
 
 import datetime as dt
-import requests, gdal, osr, sys
+import requests, gdal, osr, sys, os
+from dateUtil import RoundHoursUpSix, RoundHoursDownSix
 
-time = dt.datetime.fromisoformat('2011-04-07 23')
-value = int(str(time.strftime("%H")))/6
 
 def GetCapaNames(start_date = "2011-04-06 00", end_date = "2011-04-06 00"):
     """ Create a index of file names to loop throughto be used with Download
         CaPa Data
     :param start_date: beginning timeframe for download as String, this value
-    should be divisible by 6 hours; if not it will choose
+    should be divisible by 6 hours; if not it will round the date down to the 
+    previous timestep divisble by 6 hours
     :param end_date: end timeframe for download as String
     :return file_names: an index of filenames to download
     """
 
     file_names = []
+    start_date = RoundHoursDownSix(start_date)
+    print(start_date)
+    end_date = RoundHoursUpSix(end_date)
+    print(end_date)
+    
     #check if start date is
-    if dt.datetime.fromisoformat(start_date)< dt.datetime(2011, 4, 6, 00):
+    if start_date < dt.datetime(2011, 4, 6, 00):
         start_date = dt.datetime(2011, 4, 6, 00)
         print("Dataset does not include dates before 2011-04-06 00:00:00\n"
-              + "Datetime automatically set to 2011-04-06 00:00:00")
+              + "start date automatically set to 2011-04-06 00:00:00")
     
-    print(dt.datetime.fromisoformat(start_date))
     
-    if dt.datetime.fromisoformat(start_date) > dt.datetime.fromisoformat(end_date):
+    if start_date > end_date:
         print("End date cannot be before start date, please choose a relevant date period")
         sys.exit(1)
     else: 
 
-        time_step = dt.datetime.fromisoformat(start_date)
+        time_step = start_date
 
         # creating the timesteps necessary to step through
-        while time_step <= dt.datetime.fromisoformat(end_date):
+        while time_step <= end_date:
             if time_step < dt.datetime(2012, 10, 3, 0):
                 file_names.append(time_step.strftime("%Y%m%d%H") \
                                   + "_000_CMC_RDPA_APCP-006-0700cutoff_SFC_0_ps15km.grib2")
@@ -95,11 +99,11 @@ def ReprojectCapa(fname, epsgID=4326):
     """
     #in name
     Download_Path = "download_files/" + fname
-    print(Download_Path)
+
     #out name
     FoutName = fname.replace(".grib2", ".tif")
     PrjPath = "projected_files/" + FoutName
-    print(PrjPath)
+
     #set source projection
     #this is hard coded as the dataset only comes in this projection
     src_srs = osr.SpatialReference()
@@ -116,5 +120,8 @@ def ReprojectCapa(fname, epsgID=4326):
     gdal.Warp(destNameOrDestDS=PrjPath, 
                         srcDSOrSrcDSTab=ds,
                         dstSRS=(tgt_srs))
-
+    
+    ds = None
+    os.remove(Download_Path)
+    os.remove(Download_Path + ".aux.xml")
 

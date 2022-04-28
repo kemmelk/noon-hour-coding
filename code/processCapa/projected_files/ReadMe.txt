@@ -1,0 +1,1 @@
+This file will receive any reprojected files, typically in .tif format
