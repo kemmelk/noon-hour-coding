@@ -1,0 +1,51 @@
+<PAMDataset>
+  <SRS dataAxisToSRSAxisMapping="1,2">PROJCS["WGS 84 / NSIDC Sea Ice Polar Stereographic North",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Polar_Stereographic"],PARAMETER["latitude_of_origin",70],PARAMETER["central_meridian",-45],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",SOUTH],AXIS["Northing",SOUTH],AUTHORITY["EPSG","3413"]]</SRS>
+  <PAMRasterBand band="1">
+    <Description>0[-] SFC="Ground or water surface"</Description>
+    <Metadata>
+      <MDI key="GRIB_COMMENT">Total precipitation [kg/(m^2)]</MDI>
+      <MDI key="GRIB_DISCIPLINE">0(Meteorological)</MDI>
+      <MDI key="GRIB_ELEMENT">APCP</MDI>
+      <MDI key="GRIB_FORECAST_SECONDS">21600 sec</MDI>
+      <MDI key="GRIB_IDS">CENTER=54(Montreal) SUBCENTER=0 MASTER_TABLE=4 LOCAL_TABLE=0 SIGNF_REF_TIME=0(Analysis) REF_TIME=2011-04-12T00:00:00Z PROD_STATUS=0(Operational) TYPE=0(Analysis)</MDI>
+      <MDI key="GRIB_PDS_PDTN">8</MDI>
+      <MDI key="GRIB_PDS_TEMPLATE_ASSEMBLED_VALUES">1 8 0 30 30 0 0 1 6 1 0 0 255 -127 -2147483647 2011 4 12 0 0 0 1 0 1 2 1 4294967290 1 0</MDI>
+      <MDI key="GRIB_PDS_TEMPLATE_NUMBERS">1 8 0 30 30 0 0 0 1 0 0 0 6 1 0 0 0 0 0 255 255 255 255 255 255 7 219 4 12 0 0 0 1 0 0 0 0 1 2 1 255 255 255 250 1 0 0 0 0</MDI>
+      <MDI key="GRIB_REF_TIME">1302566400 sec UTC</MDI>
+      <MDI key="GRIB_SHORT_NAME">0-SFC</MDI>
+      <MDI key="GRIB_UNIT">[kg/(m^2)]</MDI>
+      <MDI key="GRIB_VALID_TIME">1302566400 sec UTC</MDI>
+    </Metadata>
+    <Metadata domain="GRIB">
+      <MDI key="DRS_BINARY_SCALE_FACTOR">-1</MDI>
+      <MDI key="DRS_DECIMAL_SCALE_FACTOR">4</MDI>
+      <MDI key="DRS_DRTN">40</MDI>
+      <MDI key="DRS_NBITS">20</MDI>
+      <MDI key="DRS_REF_VALUE">0.0000000000</MDI>
+    </Metadata>
+  </PAMRasterBand>
+  <PAMRasterBand band="2">
+    <Description>0[-] SFC="Ground or water surface"</Description>
+    <Metadata>
+      <MDI key="GRIB_COMMENT">(prodType 0, cat 1, subcat 193) [-]</MDI>
+      <MDI key="GRIB_DISCIPLINE">0(Meteorological)</MDI>
+      <MDI key="GRIB_ELEMENT">unknown</MDI>
+      <MDI key="GRIB_FORECAST_SECONDS">21600 sec</MDI>
+      <MDI key="GRIB_IDS">CENTER=54(Montreal) SUBCENTER=0 MASTER_TABLE=4 LOCAL_TABLE=0 SIGNF_REF_TIME=0(Analysis) REF_TIME=2011-04-12T00:00:00Z PROD_STATUS=0(Operational) TYPE=0(Analysis)</MDI>
+      <MDI key="GRIB_PDS_PDTN">8</MDI>
+      <MDI key="GRIB_PDS_TEMPLATE_ASSEMBLED_VALUES">1 193 0 30 30 0 0 1 6 1 0 0 255 -127 -2147483647 2011 4 12 0 0 0 1 0 0 2 1 4294967290 1 0</MDI>
+      <MDI key="GRIB_PDS_TEMPLATE_NUMBERS">1 193 0 30 30 0 0 0 1 0 0 0 6 1 0 0 0 0 0 255 255 255 255 255 255 7 219 4 12 0 0 0 1 0 0 0 0 0 2 1 255 255 255 250 1 0 0 0 0</MDI>
+      <MDI key="GRIB_REF_TIME">1302566400 sec UTC</MDI>
+      <MDI key="GRIB_SHORT_NAME">0-SFC</MDI>
+      <MDI key="GRIB_UNIT">[-]</MDI>
+      <MDI key="GRIB_VALID_TIME">1302566400 sec UTC</MDI>
+    </Metadata>
+    <Metadata domain="GRIB">
+      <MDI key="DRS_BINARY_SCALE_FACTOR">0</MDI>
+      <MDI key="DRS_DECIMAL_SCALE_FACTOR">6</MDI>
+      <MDI key="DRS_DRTN">40</MDI>
+      <MDI key="DRS_NBITS">20</MDI>
+      <MDI key="DRS_REF_VALUE">0.0000000000</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>
