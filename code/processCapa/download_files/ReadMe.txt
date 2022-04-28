@@ -1,0 +1,1 @@
+This folder will store any temporarily downloaded files, most files in this folder will be deleted after initial use
