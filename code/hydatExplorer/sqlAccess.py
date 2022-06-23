@@ -81,4 +81,4 @@ def query_column(conn, tName, cName):
     
     
     
-    
+ 
